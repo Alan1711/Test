@@ -1,0 +1,70 @@
+{
+  "info": {
+    "_postman_id": "de2ccd3f-1115-4833-be19-9189f6c81ba7",
+    "name": "GitHub Gists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Delete a gist",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "013c2b2a-d3f6-4203-905e-3678de9eb1a7",
+            "exec": [
+              "pm.test(\"Status code is 204. No Content\", function () { pm.response.to.have.status(204); });"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "accessToken",
+              "value": "{{userToken}}",
+              "type": "string"
+            },
+            {
+              "key": "addTokenTo",
+              "value": "header",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://api.github.com/gists/ff108b3ec7c781d96506aa2e8a0f29dc",
+          "protocol": "https",
+          "host": ["api", "github", "com"],
+          "path": ["gists", "{{gistId}}"]
+        },
+        "description": "Delete a gist"
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessToken",
+        "value": "{{userToken}}",
+        "type": "string"
+      },
+      {
+        "key": "addTokenTo",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  }
+}

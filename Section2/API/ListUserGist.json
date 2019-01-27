@@ -1,0 +1,69 @@
+{
+  "info": {
+    "_postman_id": "de2ccd3f-1115-4833-be19-9189f6c81ba7",
+    "name": "GitHub Gists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List Users Gists",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "35f6886b-4ec3-4017-93a9-3dca5b1e737f",
+            "exec": [
+              "pm.test(\"Status code is 200.\", function () { pm.response.to.have.status(200); });"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "accessToken",
+              "value": "{{userToken}}",
+              "type": "string"
+            },
+            {
+              "key": "addTokenTo",
+              "value": "header",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://api.github.com/users/{{userName}}/gists",
+          "protocol": "https",
+          "host": ["api", "github", "com"],
+          "path": ["users", "{{userName}}", "gists"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessToken",
+        "value": "{{userToken}}",
+        "type": "string"
+      },
+      {
+        "key": "addTokenTo",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  }
+}

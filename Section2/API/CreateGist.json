@@ -1,0 +1,77 @@
+{
+  "info": {
+    "_postman_id": "de2ccd3f-1115-4833-be19-9189f6c81ba7",
+    "name": "GitHub Gists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create a new Gist",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "3182f1cb-1136-4c6f-b634-4912fa244a27",
+            "exec": [
+              "pm.test(\"Status code is 201. Gist Created\", function () { pm.response.to.have.status(201); });"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "accessToken",
+              "value": "{{accessToken}}",
+              "type": "string"
+            },
+            {
+              "key": "addTokenTo",
+              "value": "header",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"Hello World Examples\",\n  \"public\": true,\n  \"files\": {\n    \"hello_world.rb\": {\n      \"content\": \"class HelloWorld\\n   def initialize(name)\\n      @name = name.capitalize\\n   end\\n   def sayHi\\n      puts \\\"Hello !\\\"\\n   end\\nend\\n\\nhello = HelloWorld.new(\\\"World\\\")\\nhello.sayHi\"\n    },\n    \"hello_world.py\": {\n      \"content\": \"class HelloWorld:\\n\\n    def __init__(self, name):\\n        self.name = name.capitalize()\\n       \\n    def sayHi(self):\\n        print \\\"Hello \\\" + self.name + \\\"!\\\"\\n\\nhello = HelloWorld(\\\"world\\\")\\nhello.sayHi()\"\n    },\n    \"hello_world_ruby.txt\": {\n      \"content\": \"Run `ruby hello_world.rb` to print Hello World\"\n    },\n    \"hello_world_python.txt\": {\n      \"content\": \"Run `python hello_world.py` to print Hello World\"\n    }\n  }\n}"
+        },
+        "url": {
+          "raw": "https://api.github.com/gists",
+          "protocol": "https",
+          "host": ["api", "github", "com"],
+          "path": ["gists"]
+        },
+        "description": "Create a gist"
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessToken",
+        "value": "{{accessToken}}",
+        "type": "string"
+      },
+      {
+        "key": "addTokenTo",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  }
+}
