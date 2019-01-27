@@ -25,7 +25,7 @@
           "oauth2": [
             {
               "key": "accessToken",
-              "value": "{{accessToken}}",
+              "value": "{{userToken}}",
               "type": "string"
             },
             {
@@ -64,7 +64,7 @@
     "oauth2": [
       {
         "key": "accessToken",
-        "value": "{{accessToken}}",
+        "value": "{{userToken}}",
         "type": "string"
       },
       {
